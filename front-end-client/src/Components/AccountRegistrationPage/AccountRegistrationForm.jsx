@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const AccountRegistrationForm = ({ signupUser }) => {
+const AccountRegistrationForm = ({ signupUser, setIsNewUser }) => {
   const [enteredEmail, setEnteredEmail] = useState("");
   const [enteredPassword, setEnteredPassword] = useState("");
   const [enteredName, setEnteredName] = useState("");
@@ -26,6 +26,7 @@ const AccountRegistrationForm = ({ signupUser }) => {
       setInputError(true);
       // Look to higlight fields that are left empty
     } else {
+      setIsNewUser(true);
       let temp = {
         name: enteredName,
         email: enteredEmail,
@@ -93,7 +94,7 @@ const AccountRegistrationForm = ({ signupUser }) => {
               Password
             </label>
             <input
-              type="text"
+              type="password"
               name="password"
               id="password"
               className="border border-gray-300 rounded p-2 w-full mb-4"
@@ -107,7 +108,7 @@ const AccountRegistrationForm = ({ signupUser }) => {
               Confirm Password
             </label>
             <input
-              type="text"
+              type="password"
               name="confirm-password"
               id="confirm-password"
               className="border border-gray-300 rounded p-2 w-full mb-4"

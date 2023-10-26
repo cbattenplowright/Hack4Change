@@ -1,4 +1,5 @@
-/**  @type {import('tailwindcss').Config} */
+/** @type {import('tailwindcss').Config} */
+
 export default {
   content: [
     "./index.html",
@@ -7,6 +8,13 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        poppins: ["Poppins", "sans-serif"],
+        sometype: ["Sometype Mono", "monospace"],
+        montserrat: ["Montserrat", "sans-serif"],
+        robotoFlex: ["Roboto Flex", "sans-serif"],
+        DMSans: ["DM Sans", "sans-serif"]
+      },
       colors: {
         primary: {
           50: "#ecfeff",

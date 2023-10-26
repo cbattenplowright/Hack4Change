@@ -31,7 +31,7 @@ public class UserService {
 
      public User addUser(UserDTO userDTO) {
          if(userRepository.findByEmail(userDTO.getEmail()) == null){
-             User user = new User(userDTO.getName(),userDTO.getDateOfBirth(),userDTO.getPassword(),userDTO.getGender(),userDTO.getEmail(),PropertiesConfig.getDefaultProfilePhoto());
+             User user = new User(userDTO.getName(),userDTO.getJobTitle(),userDTO.getDateOfBirth(),userDTO.getPassword(),userDTO.getGender(),userDTO.getEmail(),PropertiesConfig.getDefaultProfilePhoto());
              return this.userRepository.save(user);
          }
          return null;
@@ -50,7 +50,7 @@ public class UserService {
 
      }
 
-     public User updateUser(Long id, String name, LocalDate dob,String password, String gender, String email) {
+     public User updateUser(Long id, String name, LocalDate dob,String password, String gender, String email, String jobTitle) {
 
          User user = userRepository.findById(id).get();
 
@@ -65,6 +65,7 @@ public class UserService {
          } else if (email != null) {
              user.setEmail(email);
          }
+         user.setJobTitle(jobTitle);
 
          return userRepository.save(user);
      }
